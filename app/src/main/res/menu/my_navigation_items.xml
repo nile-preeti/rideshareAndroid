@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"></item>
+    <item
+        android:id="@+id/destination"
+        android:icon="@drawable/car"
+        android:title="Set Destination"></item>
+    <item
+        android:id="@+id/document_status"
+        android:icon="@drawable/document"
+        android:title="@string/document_approval_status"></item>
+    <item
+        android:id="@+id/pending_requests"
+        android:icon="@drawable/ic_hourglass"
+        android:title="Pending Rides"></item>
+    <item
+        android:id="@+id/accepted_requests"
+        android:icon="@drawable/ic_hourglass_full"
+        android:title="Accepted Rides"></item>
+    <item
+        android:id="@+id/completed_rides"
+        android:icon="@drawable/ic_thumb"
+        android:title="Completed Rides"></item>
+    <item
+        android:id="@+id/cancelled"
+        android:icon="@drawable/ic_cancel"
+        android:title="Cancelled Rides"></item>
+    <item
+        android:id="@+id/vehicle_information"
+        android:icon="@drawable/ic_directions_car"
+        android:title="Vehicle Information"
+        android:visible="false"></item>
+    <item
+        android:id="@+id/payment_detail"
+        android:icon="@drawable/ic_credit_card"
+        android:title="@string/payment_history"></item>
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_account"
+        android:title="Profile"></item>
+
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/ic_help"
+        android:title="Help"></item>
+
+    <item
+        android:id="@+id/menu_bank_detail"
+        android:icon="@drawable/bank_account_detail"
+        android:title="Bank Detail"></item>
+
+    <item
+        android:id="@+id/menu_privacy_policy"
+        android:icon="@drawable/ic_privacy_policy"
+        android:title="Privacy Policy"></item>
+
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/ic_privacy_policy"
+        android:title="About Us"></item>
+
+    <item
+        android:id="@+id/delete_account"
+        android:icon="@drawable/ic_delete_account"
+        android:title="Delete Account"></item>
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_power"
+        android:title="Log out"></item>
+
+    <item
+        android:id="@+id/myswitch"
+        android:actionLayout="@layout/switch_layout"
+        android:title=""
+        app:showAsAction="always" />
+
+</menu>

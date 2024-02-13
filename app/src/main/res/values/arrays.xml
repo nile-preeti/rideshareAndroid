@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="progress_colors">
+        <item>@color/yellow</item>
+        <item>@color/mapbox_blue</item>
+        <item>@color/red</item>
+        <item>@color/app_clr</item>
+    </integer-array>
+</resources>

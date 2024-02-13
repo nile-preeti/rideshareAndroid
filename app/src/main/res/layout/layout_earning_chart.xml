@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/form_outline_background">
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/earning_progress"
+        android:indeterminate="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorColor="@array/progress_colors"
+        app:indicatorSize="29dp"
+        android:layout_centerInParent="true"
+        app:indeterminateAnimationType="contiguous" />
+
+    <RadioGroup
+        android:id="@+id/ll_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginEnd="@dimen/margin_5"
+        android:layout_marginBottom="@dimen/margin_5"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        >
+
+
+        <RadioButton
+            android:id="@+id/rdb_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_5"
+            android:backgroundTint="@color/app_clr"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/year1"
+            android:textAllCaps="false"
+            android:textColor="@color/app_clr" />
+
+        <RadioButton
+            android:id="@+id/rdb_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_5"
+            android:backgroundTint="@color/app_clr"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/month"
+            android:textAllCaps="false"
+            android:textColor="@color/app_clr" />
+
+        <RadioButton
+            android:id="@+id/rdb_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_5"
+            android:backgroundTint="@color/app_clr"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/week"
+            android:textAllCaps="false"
+            android:outlineSpotShadowColor="@color/app_clr"
+            android:textColor="@color/app_clr" />
+
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/ll_steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_category"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_prev"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/margin_5"
+            android:layout_marginEnd="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:fontFamily="@font/montserrat_regular"
+            android:rotation="180"
+            android:src="@drawable/arrow"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/img_next"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_5"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:fontFamily="@font/montserrat_regular"
+            android:src="@drawable/arrow"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/ll_steps" />
+
+</RelativeLayout>
