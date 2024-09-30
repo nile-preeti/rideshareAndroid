@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">"TaxiCustomer"</string>
+    <string name="app_name">"RideShareRide"</string>
 
-    <!-- Do not change this for localization -->
-    <string name="google_android_map_api_key">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="google_android_map_api_key" translatable="false">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
     <string name="mapboxkey">pk.eyJ1IjoiaWNhbnN0dWRpb3oiLCJhIjoiY2oyMXQ3dGRpMDAwdDJ3bXpmZHRkdTBtNyJ9.PxslIcrVRj_gVgiv-Y-jog</string>
+
     <string name="mobile_number">"Nomor handphone"</string>
     <string name="email">"E-mail"</string>
     <string name="password">"Kata sandi"</string>
@@ -102,7 +102,7 @@
     <string name="new_pwd">"kata sandi baru"</string>
     <string name="INVALID_DISTANCE">"JARAK JAUH"</string>
     <string name="make_payment">"Melakukan pembayaran"</string>
-    <string name="taxigo">"Texi"</string>
+    <string name="taxigo">"Taxi"</string>
     <string name="date">"TANGGAL"</string>
     <string name="fare">"Tarif"</string>
     <string name="ride_request">"Permintaan Naik"</string>
@@ -114,42 +114,5 @@
     <string name="Track_Driver">"Lacak Pengemudi"</string>
     <string name="Track_Ride">"Track Ride"</string>
     <string name="driver">"Sopir"</string>
-
-
-        <string name="log_out">"keluar"</string>
-        <string name="create_an_account">"buat sebuah akun"</string>
-        <string name="total_rides">"Total Rides"</string>
-        <string name="earnings">"pendapatan"</string>
-        <string name="today">"hari ini"</string>
-        <string name="this_week">"minggu ini"</string>
-        <string name="overall">"secara keseluruhan"</string>
-        <string name="brand">"merek"</string>
-        <string name="vehicle_no">"Kendaraan No"</string>
-        <string name="model">"model"</string>
-        <string name="year">"tahun"</string>
-        <string name="color">"warna"</string>
-        <string name="continue_btn">"Terus"</string>
-        <string name="from">"dari"</string>
-        <string name="to">"untuk"</string>
-
-        <string name="customer_name">"Nama Pelanggan"</string>
-        <string name="new_password">"kata sandi baru"</string>
-
-        <string name="registered_email">"Masukkan alamat email Anda yang terdaftar, Kami akan mengirimi Anda email untuk mengatur ulang kata sandi Anda"</string>
-        <string name="registered_email_input">"Email Terdaftar"</string>
-
-        <string name="ride_payment_detail">"Ride Detail Pembayaran"</string>
-        <string name="amount">"jumlah"</string>
-        <string name="distance">"jarak"</string>
-        <string name="status">"status"</string>
-        <string name="date_amp_time">"date_amp_time"</string>
-        <string name="driver_name">"nama pengemudi"</string>
-        <string name="paypal_id">"Paypal ID"</string>
-    <string name="dl">Silakan unggah SIM Anda</string>
-    <string name="vi">Silakan unggah asuransi kendaraan Anda</string>
-    <string name="vp">Silakan unggah izin kendaraan Anda</string>
-    <string name="vr">Silakan unggah registrasi kendaraan Anda</string>
-    <string name="passanger_vehicle">Kendaraan Penumpang</string>
-
-
+    <string name="logout">keluar</string>
 </resources>

@@ -3,14 +3,11 @@
     android:shape="rectangle">
 
     <stroke
-        android:width="@dimen/_1sdp"
-        android:color="@color/Primary"
-        >
-
+        android:width="0.5dp"
+        android:color="@color/yellow_color">
     </stroke>
 
-    <solid
-        android:color="#F3262626">
+    <solid android:color="#F3262626">
 
     </solid>
 

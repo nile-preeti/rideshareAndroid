@@ -1,7 +1,6 @@
 {
   "project_info": {
     "project_number": "679082228232",
-    "firebase_url": "https://ridesharerates-626a2-default-rtdb.firebaseio.com",
     "project_id": "ridesharerates-626a2",
     "storage_bucket": "ridesharerates-626a2.appspot.com"
   },
@@ -27,7 +26,7 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:679082228232:android:f7346b219d6e4eec676fbd",
+        "mobilesdk_app_id": "1:679082228232:android:0e077101754f2f9e676fbd",
         "android_client_info": {
           "package_name": "com.ridesharedriver.app"
         }

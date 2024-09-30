@@ -4,48 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/Black2"
-    android:padding="@dimen/margin_10">
+    android:background="@color/grey1">
 
     <LinearLayout
-        android:id="@+id/l1"
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="RtlHardcoded">
 
         <RelativeLayout
+            android:id="@+id/imageLay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <ProgressBar
+                android:id="@+id/avatar_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="5dp"
-                android:src="@drawable/user_default"
-                app:civ_border_color="@color/app_clr"
-                app:civ_border_width="2dp" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/margin_15"
+                android:layout_marginTop="@dimen/margin_15"
+                android:layout_marginEnd="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_3"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_logo"
+                app:civ_border_color="@color/Brown"
+                app:civ_border_width="1dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/profile"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:textSize="@dimen/_10ssp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Driver By Bosses"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="For Bosses"
                 android:textColor="@color/white" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/txt_name"
@@ -56,47 +64,85 @@
                 android:gravity="left"
                 android:lines="1"
                 android:padding="2dp"
+                android:text="Name"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
-
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             <TextView
                 android:id="@+id/txt_email"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="@dimen/_3sdp"
+                android:drawableTint="@color/yellow_color"
                 android:fontFamily="@font/montserrat_regular"
                 android:gravity="left"
+                android:ellipsize="end"
                 android:lines="1"
                 android:padding="2dp"
+                android:text=""
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:visibility="visible" />
+                android:textSize="@dimen/_10ssp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
-            <TextView
-                android:id="@+id/txt_timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="00:00:00"
-                android:textColor="@color/white"
-                android:textFontWeight="800"
-                android:visibility="gone" />
         </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:ignore="RtlHardcoded">
+
+
+        <TextView
+            android:id="@+id/is_online"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_above="@+id/online"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_20"
+            android:lines="1"
+            android:padding="2dp"
+            android:text="@string/online"
+            android:visibility="gone"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:switchMinWidth="50dp"
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtDriverRating"
+        android:id="@+id/txtRiderRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:drawablePadding="@dimen/_2sdp"
-        android:gravity="center_vertical"
         android:drawableLeft="@drawable/star_icon"
-        android:paddingLeft="@dimen/_15sdp"
+        android:drawablePadding="@dimen/_2sdp"
         android:fontFamily="@font/montserrat_regular"
+        android:gravity="center_vertical"
         android:text="0.0"
         android:textColor="@color/white" />
 
@@ -106,19 +152,28 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:padding="@dimen/margin_10"
         android:text="08/01/2024"
         android:textColor="@color/white"
         android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/version"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="V "
-        android:textSize="@dimen/_10ssp"
-        android:textColor="@color/white" />
+        android:layout_alignParentBottom="true">
 
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/grey4"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="@dimen/margin_3"
+            android:text="V "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_7sdp" />
+    </LinearLayout>
 </RelativeLayout>

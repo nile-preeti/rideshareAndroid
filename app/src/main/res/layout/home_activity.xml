@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Black2"
-    android:keepScreenOn="true"
+    android:background="@color/black"
+    android:fitsSystemWindows="true"
     android:scrollbars="horizontal">
 
     <RelativeLayout
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.drawerlayout.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/drawer_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
             tools:openDrawer="start">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,44 +31,10 @@
                     android:layout_gravity="center"
                     android:background="@color/black"
                     android:fitsSystemWindows="true"
-                    app:contentInsetLeft="0dp"
-                    app:contentInsetStart="0dp"
-                    app:contentInsetStartWithNavigation="0dp"
                     app:popupTheme="@style/AppTheme.PopupOverlay"
                     app:theme="@style/ToolBarStyle"
-                    app:titleTextColor="@color/white">
+                    app:titleTextColor="@color/white" />
 
-                    <LinearLayout
-                        android:id="@+id/ll_earning"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/margin_5">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_daily_earning"
-                            app:tint="@color/white" />
-
-                        <TextView
-                            android:id="@+id/txt_day_earning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/margin_5"
-                            android:fontFamily="@font/montserrat_bolditalic"
-                            android:text="0.00"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-                </androidx.appcompat.widget.Toolbar>
-
-                <!-- The first child in the layout is for the main Activity UI-->
                 <FrameLayout
                     android:id="@+id/frame"
                     android:layout_width="match_parent"
@@ -79,44 +43,7 @@
                     android:scrollbars="horizontal"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_online_status"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/margin_5"
-                        android:fitsSystemWindows="true"
-                        android:visibility="visible"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true"
-                        app:contentPadding="5dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_online_status"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_regular"
-                                android:gravity="center_horizontal"
-                                android:text="Online"
-                                android:textColor="@color/white"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
                 </FrameLayout>
-
 
             </LinearLayout>
 
@@ -126,18 +53,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:background="@color/Black2"
+                android:background="@color/grey1"
                 app:headerLayout="@layout/navigation_header"
                 app:itemBackground="@drawable/naviagtionview_statecolor"
                 app:itemIconPadding="@dimen/margin_10"
-                app:itemIconTint="@color/app_clr"
+                app:itemIconTint="@color/yellow_color"
                 app:itemTextColor="@color/white"
-                app:menu="@menu/my_navigation_items" />
+                app:menu="@menu/my_navigation_items" >
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Brown" />
+            </com.google.android.material.navigation.NavigationView>
 
         </androidx.drawerlayout.widget.DrawerLayout>
 
-
     </RelativeLayout>
-
 
 </RelativeLayout>

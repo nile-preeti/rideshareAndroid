@@ -6,8 +6,8 @@
     android:layout_height="45dp"
     android:ellipsize="marquee"
     android:singleLine="true"
-    android:background="@color/grey4"
     android:textAlignment="inherit"
+    android:background="@color/grey4"
     android:textColor="@color/white"
     android:fontFamily="@font/montserrat_regular"
     android:textSize="14sp" />

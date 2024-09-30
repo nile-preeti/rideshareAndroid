@@ -1,383 +1,716 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/swipe_refresh"
-    android:background="@drawable/background_rideshare"
-    android:padding="5dp">
+    android:background="@drawable/background_rideshare">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbarThumbVertical="@android:color/transparent">
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="56dp"
+            android:background="@color/Brown"
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-            <LinearLayout
-                android:id="@+id/linear"
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_back_aarow" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Ride details"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarThumbVertical="@android:color/transparent">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_margin="10dp"
+                android:background="@color/grey1">
 
-                <ImageView
-                    android:id="@+id/car_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:rotation="0"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/car" />
-
-
-                <RelativeLayout
+                <LinearLayout
+                    android:id="@+id/linear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
+                    <!-- add image view to show map  -->
 
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="@dimen/margin_m10"
-                        android:text="TexiGO"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left|bottom"
-                        android:layout_weight="1"
-                        android:text="Affordable,everyday rides"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
+                    <ImageView
+                        android:id="@+id/img_map"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_margin="@dimen/margin_5"
+                        android:src="@drawable/car_ride"
                         android:visibility="gone" />
 
-                    <LinearLayout
-                        android:id="@+id/linear_chat"
-                        android:layout_width="wrap_content"
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/map_accept_detail_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:apiKey="@string/google_android_map_api_key"
+                        android:clickable="false"
+                        android:enabled="true"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginBottom="@dimen/margin_m10"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal"
                         android:visibility="gone">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_5"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/ic_chat_bubble_black_24dp" />
-
                         <TextView
-
+                            android:id="@+id/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text=" chat"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginStart="@dimen/margin_20"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="@dimen/margin_m10"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
-                            android:visibility="visible" />
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="1dp"
-                    android:background="@color/liner" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/linear_child1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linear"
-                android:layout_marginTop="5dp"
-
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TableLayout
-                    android:layout_width="match_parent"
-
-                    android:layout_height="wrap_content">
-
-                    <TableRow
-                        android:id="@+id/capacity_row"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:padding="10dp"
-                        android:visibility="gone">
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
 
                         <TextView
-                            android:id="@+id/capacity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Capacity       "
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/txt_capacity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:text="1-4 Persons"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/basefare_row"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/basefare"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/basefare"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/txt_basefare"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:text=""
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/pickuplocation_row"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/pickuplocation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pickup Location       "
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/txt_pickuplocation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:focusableInTouchMode="true"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:maxLines="2"
-                            android:scrollHorizontally="true"
-                            android:text=""
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/droplocation_row"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/droplocation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Drop Location       "
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/txt_droplocation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:focusableInTouchMode="true"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:maxLines="2"
-                            android:scrollHorizontally="true"
-                            android:text=""
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/name_row"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Name       "
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/txt_drivername"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/mobilenumber_row"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:clickable="true"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/mobilenumber"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/customer_number"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/txt_mobilenumber"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|bottom"
                             android:layout_weight="1"
-                            android:text=""
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                            android:text="Affordable,everyday rides"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
 
-                        <ImageView
-                            android:id="@+id/img_call"
+                        <LinearLayout
+                            android:id="@+id/linear_chat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_m5"
-                            android:src="@mipmap/ic_call_white_24dp"
-                            app:tint="@color/black" />
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="@dimen/margin_m10"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_5"
+                                android:adjustViewBounds="true"
+                                android:src="@mipmap/ic_chat_bubble_black_24dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text=" chat"
+                                android:textSize="20sp"
+                                android:visibility="visible" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
 
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/paymentstatus_row"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/paymentstatus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Payment Status       "
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <TextView
-                            android:id="@+id/txt_paymentstatus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:text="@string/no_status"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    </TableRow>
-
-                </TableLayout>
-
-                <View
-
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#DDE4E8" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_approve"
-                    style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/linear_child1"
-                    android:layout_marginBottom="@dimen/detail_bottom_margin"
-                    android:layout_marginTop="@dimen/detail_bottom_margin"
-                    android:background="@drawable/ripple_effect"
-                    android:text="@string/approve_payment_offline"
-                    android:visibility="gone" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_trackride"
-                    style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/linear_child1"
-                    android:layout_marginBottom="@dimen/detail_bottom_margin"
-                    android:background="@drawable/ripple_effect"
-                    android:text="@string/track_ride"
-                    android:visibility="gone" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_accept"
-                        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/linear_child1"
-                        android:layout_margin="@dimen/margin_10"
-                        android:layout_marginTop="@dimen/detail_bottom_margin"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple_effect"
-                        android:text="@string/accept_ride"
-                        android:visibility="gone" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_complete"
-                        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/linear_child1"
-                        android:layout_margin="@dimen/margin_10"
-                        android:layout_marginTop="@dimen/detail_bottom_margin"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple_effect"
-                        android:text="@string/complete_ride"
-                        android:visibility="gone" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_cancel"
-                        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/linear_child1"
-                        android:layout_margin="@dimen/margin_10"
-                        android:layout_marginTop="@dimen/detail_bottom_margin"
-                        android:layout_weight="1"
-                        android:background="@drawable/ripple_effect"
-                        android:text="@string/cancel_ride"
-                        android:visibility="gone" />
+                        android:layout_height="1dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@color/liner" />
                 </LinearLayout>
 
 
-            </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
+                <LinearLayout
+                    android:id="@+id/linear_child1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear"
+                    android:layout_marginTop="5dp"
 
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content">
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:padding="10dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Capacity       "
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:text="1-4 Persons"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        </TableRow>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:padding="10dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/timeandate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/Brown"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/txt_basefare"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/Brown" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:gravity="center"
+                            android:padding="@dimen/margin_5"
+                            android:text="Ride Details"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:foreground="@color/white"
+                            android:padding="@dimen/margin_5" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_5"
+                            android:padding="@dimen/margin_5">
+
+                            <TextView
+                                android:id="@+id/tv_cancellation_charge_title"
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Pickup Address  "
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/txt_pickuplocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:inputType="textMultiLine"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@+id/tv_cancellation_charge_title"
+                                app:layout_constraintTop_toTopOf="@+id/tv_cancellation_charge_title" />
+
+                            <TextView
+                                android:id="@+id/tv_stop_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Stop Address  "
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:visibility="gone"
+                                app:layout_constraintStart_toStartOf="@+id/tv_cancellation_charge_title"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_pickuplocation" />
+
+                            <TextView
+                                android:id="@+id/txt_stoplocation"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:inputType="textMultiLine"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:visibility="gone"
+                                app:layout_constraintStart_toStartOf="@+id/txt_pickuplocation"
+                                app:layout_constraintTop_toTopOf="@+id/tv_stop_title" />
+
+                            <TextView
+                                android:id="@+id/tv_total_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Drop Address  "
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/tv_stop_title"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_stoplocation" />
+
+                            <TextView
+                                android:id="@+id/txt_droplocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:inputType="textMultiLine"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/txt_stoplocation"
+                                app:layout_constraintTop_toTopOf="@+id/tv_total_title" />
+
+
+                            <TextView
+                                android:id="@+id/textView13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Your ride is with"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/tv_total_title"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_droplocation" />
+
+                            <TextView
+                                android:id="@+id/driver_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/txt_droplocation"
+                                app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+
+                            <TextView
+                                android:id="@+id/textView14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Payment Status"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/textView13"
+                                app:layout_constraintTop_toBottomOf="@+id/driver_name" />
+
+                            <TextView
+                                android:id="@+id/txt_paymentstatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:scrollHorizontally="true"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/driver_name"
+                                app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+
+                            <TextView
+                                android:id="@+id/textView15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Amount"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/textView14"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_paymentstatus" />
+
+                            <TextView
+                                android:id="@+id/txt_amount_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/txt_paymentstatus"
+                                app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+                            <TextView
+                                android:id="@+id/cancellationCharge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Cancellation Charge"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/textView15"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_amount_1" />
+
+                            <TextView
+                                android:id="@+id/txt_cancellation_charge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/txt_amount_1"
+                                app:layout_constraintTop_toTopOf="@+id/cancellationCharge" />
+
+                            <TextView
+                                android:id="@+id/textView16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Distance"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/cancellationCharge"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_cancellation_charge" />
+
+                            <TextView
+                                android:id="@+id/txt_distance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/txt_cancellation_charge"
+                                app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+
+                            <TextView
+                                android:id="@+id/textView17"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Status"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/textView16"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_distance" />
+
+                            <TextView
+                                android:id="@+id/txt_status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/txt_distance"
+                                app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Date &amp; Time"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/textView17"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_status" />
+
+                            <TextView
+                                android:id="@+id/txt_date_and_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text=""
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="@+id/txt_status"
+                                app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <TableRow
+                            android:id="@+id/mobilenumber_row"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:clickable="true"
+                            android:padding="10dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="@string/drivername"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="@dimen/margin_5"
+                                android:src="@mipmap/ic_call_white_24dp"
+                                app:tint="@color/Brown" />
+
+                            <TextView
+                                android:id="@+id/txt_mobilenumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="dfdfdfdfdf"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:padding="10dp">
+
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <View
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#DDE4E8" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_trackride"
+                        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:layout_marginTop="@dimen/detail_bottom_margin"
+                        android:layout_marginEnd="@dimen/margin_10"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:layout_marginBottom="@dimen/detail_bottom_margin"
+                        android:background="@drawable/accept_button"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="@string/track_ride"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_payment"
+                        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_10"
+                        android:layout_marginTop="@dimen/detail_bottom_margin"
+                        android:layout_marginBottom="@dimen/detail_bottom_margin"
+                        android:background="@color/Brown"
+                        android:text="@string/make_payment"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        tools:ignore="HardcodedText" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_complete"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/linear_child1"
+                            android:layout_margin="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/detail_bottom_margin"
+                            android:layout_marginBottom="@dimen/detail_bottom_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/accept_button"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="@string/complete_ride"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:visibility="gone" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_cancel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/linear_child1"
+                            android:layout_margin="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/detail_bottom_margin"
+                            android:layout_marginBottom="@dimen/detail_bottom_margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/accept_button"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="@string/cancel_ride"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/pause_recording_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/margin_10"
+                            android:background="@drawable/accept_button"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/pause_recording_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center"
+                                android:text="Pause"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/stop_recording_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/margin_10"
+                            android:background="@drawable/accept_button"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/stop_recording_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center"
+                                android:text="Stop Recording"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/play_recording_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/margin_10"
+                            android:background="@drawable/accept_button"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/play_recording_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center"
+                                android:text="Play Recording"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </ScrollView>
+    </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
